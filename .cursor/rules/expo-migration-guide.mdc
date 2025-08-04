@@ -1,0 +1,171 @@
+---
+alwaysApply: true
+description: Guide for migrating design files from src folder and Figma designs to Expo project structure
+---
+
+# Expo Migration Guide
+
+## Project Structure Reference
+- **Trusted Expo Structure**: Always reference `need1/app-example/` as the authoritative Expo project structure
+- **Source Files**: Design files are located in `src/` folder and `Need1Figma/` folder
+- **Target Structure**: Migrate to `need1/` following the app-example patterns
+- **Design Priority**: Figma designs take precedence for UI/UX, src provides business logic and structure
+
+## Migration Patterns
+
+### Component Migration
+- **From**: `src/components/` + `Need1Figma/components/` → **To**: `need1/components/`
+- Follow the component structure in `need1/app-example/components/`
+- Use TypeScript with proper Expo imports
+- Implement NativeWind for styling (following app-example patterns)
+- **Priority**: Figma UI components first, then enhance with src business logic
+
+### Screen Migration  
+- **From**: `src/screens/` + `Need1Figma/screens/` → **To**: `need1/app/` (using Expo Router)
+- Convert screen components to route files in `need1/app/`
+- Follow the routing structure in `need1/app-example/app/`
+- **Priority**: Use Figma layouts and styling, integrate src functionality
+
+### Hook Migration
+- **From**: `src/hooks/` → **To**: `need1/hooks/`
+- Follow patterns in `need1/app-example/hooks/`
+- Ensure compatibility with Expo SDK 53
+- **Priority**: Keep all src hooks for business logic
+
+### Type Definitions
+- **From**: `src/types/` → **To**: `need1/types/` (create if needed)
+- Follow TypeScript patterns from app-example
+- **Priority**: Use src types as they contain business domain models
+
+### Navigation Migration
+- **From**: `src/navigation/` → **To**: `need1/app/` (Expo Router)
+- Convert navigation logic to Expo Router patterns
+- Reference `need1/app-example/app/` for routing structure
+- **Priority**: Use src navigation logic, apply Figma styling
+
+### Library/API Migration
+- **From**: `src/lib/` → **To**: `need1/lib/` (create if needed)
+- Follow API patterns from app-example
+- **Priority**: Keep all src API logic and mock data
+
+### Styling Migration
+- **From**: `src/styles/` + `Need1Figma/styles/` → **To**: NativeWind classes in components
+- Convert CSS/styled-components to NativeWind utility classes
+- Follow styling patterns in `need1/app-example/components/`
+- **Priority**: Figma design system first, then src utility styles
+
+## Key Migration Principles
+1. **Always reference app-example as the source of truth for Expo structure**
+2. **Use Expo Router instead of React Navigation**
+3. **Implement NativeWind for styling**
+4. **Follow TypeScript patterns from app-example**
+5. **Ensure compatibility with Expo SDK 53**
+6. **Test each migration step before proceeding**
+7. **Figma designs drive UI/UX decisions**
+8. **Src provides business logic, API structure, and domain models**
+9. **Combine best of both: Figma aesthetics + src functionality**
+
+## File Structure Mapping
+```
+src/ + Need1Figma/ → need1/
+├── components/ → components/ (Figma UI + src logic)
+├── screens/ → app/ (Expo Router)
+├── navigation/ → app/ (Expo Router)  
+├── hooks/ → hooks/ (src only)
+├── types/ → types/ (src only)
+├── lib/ → lib/ (src only)
+└── styles/ → NativeWind classes (Figma design system)
+```
+
+Now let me create a comprehensive migration plan:
+
+## 🎯 **Comprehensive Migration Plan: Figma + Src Integration**
+
+### **Phase 1: Foundation & Core Components** (Week 1)
+**Priority**: Figma UI components with src business logic
+
+1. **Core UI Components** (Figma → NativeWind)
+   - Button variants (primary, secondary, outline)
+   - Card layouts with proper spacing
+   - Badge system (verified, karma, eco)
+   - Input fields and form components
+   - Typography system from Figma
+
+2. **Business Logic Integration** (Src)
+   - Keep all existing hooks (`useCountdown`, `useThemeColors`)
+   - Maintain API structure and mock data
+   - Preserve type definitions
+
+### **Phase 2: Screen Migration** (Week 2)
+**Priority**: Figma layouts + src functionality
+
+1. **Authentication Flow**
+   - Welcome screen (Figma design)
+   - VerifyLink screen (Figma design)
+   - ProfileWizard (Figma design + src logic)
+
+2. **Main App Screens**
+   - Dashboard (Figma layout + src data flow)
+   - RequestDetail (Figma design + src API)
+   - ProfileScreen (Figma design + src karma system)
+
+### **Phase 3: Advanced Features** (Week 3)
+**Priority**: Complex interactions and special features
+
+1. **Messaging System**
+   - ThreadList (Figma design)
+   - Chat interface (Figma design)
+   - Auto-delete functionality (src logic)
+
+2. **Flash Market**
+   - DropLanding (Figma design)
+   - Countdown timers (src hooks)
+
+3. **Safe Spots**
+   - Map integration (src logic)
+   - Location services (src API)
+
+### **Phase 4: Polish & Integration** (Week 4)
+**Priority**: Seamless user experience
+
+1. **Navigation Flow**
+   - Tab navigation (Figma styling)
+   - Deep linking (src logic)
+   - Transition animations
+
+2. **Data Integration**
+   - Real-time updates
+   - Offline support
+   - Error handling
+
+### **Migration Strategy**
+
+**For Each Component/Screen:**
+1. **Start with Figma design** → Convert to NativeWind
+2. **Add src business logic** → Integrate hooks and API calls
+3. **Test functionality** → Ensure business requirements met
+4. **Polish interactions** → Add animations and micro-interactions
+
+**Design System Approach:**
+- Use Figma color palette and typography
+- Implement src spacing and layout patterns
+- Combine Figma aesthetics with src functionality
+
+**Business Logic Preservation:**
+- Keep all src hooks and utilities
+- Maintain API structure and mock data
+- Preserve type definitions and interfaces
+
+Would you like me to start with **Phase 1** and begin migrating the core UI components from Figma while preserving the src business logic?
+
+## Migration Priority Strategy
+1. **Phase 1**: Core Figma UI components (Button, Card, Badge, etc.)
+2. **Phase 2**: Screen layouts from Figma with src business logic
+3. **Phase 3**: Navigation and routing (src logic, Figma styling)
+4. **Phase 4**: API integration and data flow (src)
+5. **Phase 5**: Advanced features and polish
+
+globs:
+alwaysApply: false
+---
+ 

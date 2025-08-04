@@ -1,0 +1,50 @@
+---
+alwaysApply: true
+description: Business requirements and app structure for Need1 campus gig-exchange platform
+---
+
+# Need1 Business Requirements
+
+## Product Overview
+Need1 is a college-exclusive gig-exchange app where:
+- Students ("Seekers") post micro-jobs
+- Other students ("Bidders") accept and complete them
+- Key features: .edu verification, Safe-Spot meet-ups, karma scores, eco-impact badges, auto-deleting chat, Flash-Market drops
+
+## Core Screens Required
+1. **Welcome** - .edu email input, "Send Link" CTA
+2. **VerifyLink** - illustration, resend & open-mail buttons
+3. **ProfileWizard** - 3 steps: avatar, academic info, skill tags
+4. **Dashboard** - mixed feed (jobs + matches), pull-to-refresh
+5. **RequestWizard** - step form with Safe-Spot map
+6. **RequestDetail** - hero info, status pill, "Express Interest" CTA
+7. **OfferFeed** - segmented: "Open Jobs / My Bids / Flash Drops"
+8. **ThreadList** - virtualized list with unread badges
+9. **Chat** - bubble view, typing indicator, 7-day auto-delete banner
+10. **ProfileScreen** - avatar, badges, karma bar, tabs
+11. **FlashDropLanding** - countdown timer, expiring jobs grid
+12. **Settings** - theme toggle, privacy switches, delete account
+
+## Core Components
+- Button, Card, Badge (verified/karma/eco)
+- KarmaBar, RequestItem, OfferItem, MessageBubble
+- SafeSpotMap (static pins)
+
+## Helper Hooks & Libs
+- useCountdown (Flash drops)
+- useThemeColors
+- mockData.ts (requests, offers, messages, safe-spots)
+- api.ts stubs with mock data
+
+## Migration Priority
+1. Complete core components (Button, Card, Badge, KarmaBar)
+2. Build authentication flow (Welcome, VerifyLink, ProfileWizard)
+3. Create main screens (Dashboard, RequestWizard, RequestDetail)
+4. Add messaging (ThreadList, Chat)
+5. Implement special features (Flash-Market, Safe-Spots)
+6. Complete profile and settings
+description:
+globs:
+alwaysApply: false
+---
+ 
