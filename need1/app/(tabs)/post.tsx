@@ -232,6 +232,8 @@ export default function PostScreen() {
           title={`Post ${postType === "request" ? "Request" : "Service"}`}
           onPress={handleSubmit}
           loading={loading}
+          variant="primary"
+          size="lg"
           className="w-full"
         />
       </View>

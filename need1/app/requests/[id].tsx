@@ -119,7 +119,7 @@ export default function RequestDetailScreen() {
                 {request.title}
               </Text>
               <View className="flex-row items-center mb-2">
-                <Badge type="verified" size="sm" />
+                {request.seeker.isVerified && <Badge type="verified" size="xs" />}
                 <Text className="text-sm text-gray-500 ml-2">
                   {request.seeker.name}
                 </Text>

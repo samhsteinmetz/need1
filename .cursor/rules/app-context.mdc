@@ -1,9 +1,7 @@
 ---
 description: Context for the app Need1 business college marketplace app
-alwaysApply: true
+alwaysApply: false
 ---
-
-
 Need 1 is a campus‑exclusive gig‑exchange platform that lets verified *.edu* students post everyday micro‑jobs—moving boxes across dorms, last‑minute calculus tutoring, designing club flyers—and match instantly with classmates who can fulfill them.  
 Differentiators:
 

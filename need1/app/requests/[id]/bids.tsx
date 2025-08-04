@@ -118,18 +118,20 @@ export default function BidsScreen() {
           <Text className="text-sm text-gray-600 ml-1">4.8 rating</Text>
         </View>
         <View className="flex-row space-x-2">
-          <TouchableOpacity
+          <Button
+            title="Accept"
             onPress={() => handleAcceptBid(item)}
-            className="px-4 py-2 bg-green-500 rounded-lg"
-          >
-            <Text className="text-white font-medium">Accept</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
+            variant="success"
+            size="sm"
+            className="flex-1"
+          />
+          <Button
+            title="Decline"
             onPress={() => handleDeclineBid(item)}
-            className="px-4 py-2 bg-red-500 rounded-lg"
-          >
-            <Text className="text-white font-medium">Decline</Text>
-          </TouchableOpacity>
+            variant="danger"
+            size="sm"
+            className="flex-1"
+          />
         </View>
       </View>
     </Card>

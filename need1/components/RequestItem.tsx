@@ -43,7 +43,7 @@ export const RequestItem: React.FC<RequestItemProps> = ({ request, onPress }) =>
           </View>
           
           <View className="flex-row items-center space-x-2">
-            <Badge type="verified" size="sm" />
+            {request.seeker.isVerified && <Badge type="verified" size="xs" />}
             <View className="flex-row items-center">
               <Ionicons name="chatbubble-outline" size={14} color="#6b7280" />
               <Text className="text-xs text-gray-500 ml-1">{request.bidCount}</Text>
