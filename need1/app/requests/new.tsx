@@ -229,12 +229,21 @@ export default function RequestWizardScreen() {
       </ScrollView>
 
       {/* Footer */}
-      <View className="p-4 bg-white border-t border-secondary-200">
-        <Button
-          title={step === 3 ? "Create Request" : "Next"}
-          onPress={handleNext}
-          disabled={!formData.title || !formData.description || !formData.category}
-        />
+      <View className="p-3 bg-white border-t border-secondary-200">
+        <View className="flex-row space-x-2">
+          <Button
+            title="Express Interest"
+            onPress={handleExpressInterest}
+            size="sm"
+            className="flex-1"
+          />
+          <TouchableOpacity
+            onPress={handleChat}
+            className="w-10 h-10 rounded-full bg-secondary-100 items-center justify-center"
+          >
+            <Ionicons name="chatbubble-outline" size={18} color="#6b7280" />
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   )

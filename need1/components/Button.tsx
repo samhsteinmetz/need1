@@ -26,13 +26,13 @@ export const Button: React.FC<ButtonProps> = ({
   const getSizeStyles = () => {
     switch (size) {
       case "sm":
-        return "px-4 py-2.5 rounded-lg"
+        return { paddingHorizontal: 10, paddingVertical: 8, borderRadius: 7 }
       case "md":
-        return "px-6 py-3.5 rounded-xl"
+        return { paddingHorizontal: 18, paddingVertical: 11, borderRadius: 10 }
       case "lg":
-        return "px-8 py-4 rounded-2xl"
+        return { paddingHorizontal: 24, paddingVertical: 13, borderRadius: 12 }
       default:
-        return "px-6 py-3.5 rounded-xl"
+        return { paddingHorizontal: 18, paddingVertical: 11, borderRadius: 10 }
     }
   }
 
@@ -83,7 +83,7 @@ export const Button: React.FC<ButtonProps> = ({
         }
       case "success":
         return {
-          gradient: null,
+          gradient: ["#22c55e", "#16a34a"],
           textColor: "text-white",
           shadow: "shadow-lg shadow-green-500/25"
         }
@@ -106,19 +106,25 @@ export const Button: React.FC<ButtonProps> = ({
         onPress={onPress}
         disabled={disabled || loading}
         activeOpacity={0.8}
-        className={`${sizeStyles} ${config.shadow} ${disabled ? "opacity-50" : ""} ${className}`}
+        className={`${config.shadow} ${disabled ? "opacity-50" : ""} ${className}`}
+        style={sizeStyles}
       >
         <LinearGradient
-          colors={config.gradient}
+          colors={config.gradient as [string, string]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          className={`${sizeStyles} justify-center items-center flex-row`}
+          style={{
+            ...sizeStyles,
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row'
+          }}
         >
           {loading ? (
             <ActivityIndicator color="white" size="small" />
           ) : (
             <>
-              {icon && <View className="mr-2">{icon}</View>}
+              {icon && <View style={{ marginRight: 8 }}>{icon}</View>}
               <Text className={`${config.textColor} font-semibold ${textSize}`}>
                 {title}
               </Text>
@@ -138,8 +144,6 @@ export const Button: React.FC<ButtonProps> = ({
         return "bg-transparent border-2 border-primary-500"
       case "ghost":
         return "bg-transparent"
-      case "success":
-        return "bg-green-500"
       default:
         return "bg-gray-100 border border-gray-200"
     }
@@ -150,7 +154,8 @@ export const Button: React.FC<ButtonProps> = ({
       onPress={onPress}
       disabled={disabled || loading}
       activeOpacity={0.8}
-      className={`${getNonGradientStyles()} ${sizeStyles} ${config.shadow} ${disabled ? "opacity-50" : ""} ${className}`}
+      className={`${getNonGradientStyles()} ${config.shadow} ${disabled ? "opacity-50" : ""} ${className}`}
+      style={sizeStyles}
     >
       <View className="flex-row items-center justify-center">
         {loading ? (
